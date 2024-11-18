@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Competencia de Perros</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="perros.css">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="carros.html">Alquiler de Carros</a></li>
+            <li><a href="nomina.html">Nómina</a></li>
+            <li><a href="perros.html">Competencia de Perros</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h1>Competencia de Perros</h1>
+
+        <div class="dogs-grid">
+            <div class="dog-card" id="first-place">
+                <div class="position-badge">1er Lugar</div>
+                <img src="/img/primer_lugar.jpg" alt="Primer Lugar">
+                <div class="dog-info">
+                    <select class="dog-select" id="dog1">
+                        <option value="">Seleccione Raza</option>
+                        <option value="Pastor Alemán">Pastor Alemán</option>
+                        <option value="Labrador">Labrador</option>
+                        <option value="Golden Retriever">Golden Retriever</option>
+                        <option value="Bulldog">Bulldog</option>
+                        <option value="Husky">Husky</option>
+                    </select>
+                    <p class="price-info"></p>
+                </div>
+            </div>
+
+            <div class="dog-card" id="second-place">
+                <div class="position-badge">2do Lugar</div>
+                <img src="/img/segundo_lugar.jpg" alt="Segundo Lugar">
+                <div class="dog-info">
+                    <select class="dog-select" id="dog2">
+                        <option value="">Seleccione Raza</option>
+                        <option value="Pastor Alemán">Pastor Alemán</option>
+                        <option value="Labrador">Labrador</option>
+                        <option value="Golden Retriever">Golden Retriever</option>
+                        <option value="Bulldog">Bulldog</option>
+                        <option value="Husky">Husky</option>
+                    </select>
+                    <p class="price-info"></p>
+                </div>
+            </div>
+
+            <div class="dog-card" id="third-place">
+                <div class="position-badge">3er Lugar</div>
+                <img src="/img/tercer_lugar.jpg" alt="Tercer Lugar">
+                <div class="dog-info">
+                    <select class="dog-select" id="dog3">
+                        <option value="">Seleccione Raza</option>
+                        <option value="Pastor Alemán">Pastor Alemán</option>
+                        <option value="Labrador">Labrador</option>
+                        <option value="Golden Retriever">Golden Retriever</option>
+                        <option value="Bulldog">Bulldog</option>
+                        <option value="Husky">Husky</option>
+                    </select>
+                    <p class="price-info"></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="results-container">
+            <h2>Resultados de la Competencia</h2>
+            <div id="competition-results"></div>
+        </div>
+    </div>
+
+    <script src="perros.js"></script>
+</body>
+</html>

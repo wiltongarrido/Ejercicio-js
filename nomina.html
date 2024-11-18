@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cálculo de Nómina</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="nomina.css">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="carros.html">Alquiler de Carros</a></li>
+            <li><a href="nomina.html">Nómina</a></li>
+            <li><a href="perros.html">Competencia de Perros</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h1>Cálculo de Nómina</h1>
+        
+        <div class="form-container">
+            <form id="nominaForm">
+                <div class="form-group">
+                    <label for="nombre">Nombre del Empleado:</label>
+                    <input type="text" id="nombre" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="salarioBase">Salario Base:</label>
+                    <input type="number" id="salarioBase" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="diasTrabajados">Días Trabajados:</label>
+                    <input type="number" id="diasTrabajados" required min="1" max="30">
+                </div>
+
+                <div class="form-group">
+                    <label for="horasExtra">Horas Extra:</label>
+                    <input type="number" id="horasExtra" required min="0">
+                </div>
+
+                <button type="submit">Calcular Nómina</button>
+            </form>
+
+            <div id="resultado"></div>
+        </div>
+    </div>
+
+    <script src="nomina.js"></script>
+</body>
+</html>
