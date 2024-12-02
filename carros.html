@@ -42,6 +42,7 @@
                 <h3>Chevrolet Gris</h3>
             </div>
         </div>
+        
 
         <div class="form-container">
             <form id="rentalForm">
@@ -82,6 +83,9 @@
                                 <option value="Megane">Megane Rojo</option>
                                 <option value="Chevrolet">Chevrolet Gris</option>
                             </select>
+                            <div class="imagen-carro-container">
+                                <img id="imagenCarro" src="" alt="Imagen del Carro" style="display: none; max-width: 100%; margin-top: 1rem; border-radius: 8px;">
+                            </div>
                         </div>
                         <div class="form-group">
                             <label for="fechaInicio">Fecha de Inicio:</label>
@@ -121,6 +125,10 @@
             </form>
         
             <div id="resultado"></div>
+            <div class="car-preview">
+                <h3>Vehículo Seleccionado</h3>
+                <img id="carroImagen" src="" alt="Vista previa del carro" style="display:none; max-width: 100%; max-height: 300px;">
+            </div>
         </div>
     <div class="modal" id="imageModal">
         <div class="modal-content">
@@ -129,5 +137,34 @@
         </div>
     </div>
     <script src="carros.js"></script>
-</body>
+</body><footer class="site-footer">
+    <div class="footer-content">
+        <div class="footer-section">
+            <h4>Contacto</h4>
+            <p>📞 (123) 456-7890</p>
+            <p>✉️ info@alquilercarros.com</p>
+        </div>
+        <div class="footer-section">
+            <h4>Ubicación</h4>
+            <p>Av. Principal 123</p>
+            <p>Ciudad, País</p>
+        </div>
+        <div class="footer-section">
+            <h4>Horarios</h4>
+            <p>Lunes a Viernes: 8am - 8pm</p>
+            <p>Sábados: 9am - 5pm</p>
+        </div>
+        <div class="footer-section">
+            <h4>Síguenos</h4>
+            <div class="social-icons">
+                <a href="#">Facebook</a>
+                <a href="#">Instagram</a>
+                <a href="#">Twitter</a>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>© 2024 Alquiler de Carros. Todos los derechos reservados.</p>
+    </div>
+</footer>
 </html>

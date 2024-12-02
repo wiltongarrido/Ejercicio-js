@@ -1,3 +1,4 @@
+
 document.getElementById('rentalForm').addEventListener('submit', function(e) {
     e.preventDefault();
     
@@ -7,14 +8,35 @@ document.getElementById('rentalForm').addEventListener('submit', function(e) {
     const fechaInicio = new Date(document.getElementById('fechaInicio').value);
     const fechaFin = new Date(document.getElementById('fechaFin').value);
     const seguro = document.getElementById('seguro').value;
+
+    const imagenesCarros = {
+        'BMW': 'bmw_azul.jpg',
+        'Mercedes': 'mercedez_negro', 
+        'Twingo': 'twingo verde',
+        'Megane': 'megane_rojo.jpg',
+        'Chevrolet': 'chevrolet_gris'
+    }
+    const carroSelect = document.getElementById('carro');
+const carroImagen = document.getElementById('carroImagen');
+
+carroSelect.addEventListener('change', function() {
+    const carroSeleccionado = this.value;
+    
+    if (carroSeleccionado) {
+        carroImagen.src = imagenesCarros[carroSeleccionado];
+        carroImagen.style.display = 'block';
+    } else {
+        carroImagen.style.display = 'none';
+    }
+});
     
     // Calcular días
     const dias = Math.ceil((fechaFin - fechaInicio) / (1000 * 60 * 60 * 24));
     
     // Precios base por día
     const precios = {
-        'BMW': 200000,
-        'Mercedes': 180000,
+        'BMW': 650000,
+        'Mercedes': 700000,
         'Twingo': 100000,
         'Megane': 120000,
         'Chevrolet': 150000
@@ -37,7 +59,17 @@ document.getElementById('rentalForm').addEventListener('submit', function(e) {
     if(document.getElementById('sillaBebe').checked) adicionales += 8000 * dias;
     if(document.getElementById('conductor').checked) adicionales += 15000 * dias;
     
-    const precioTotal = precioBase + precioSeguro + adicionales;
+    let descuento = 0;
+    // Aplicar descuentos según días
+    if (dias >= 3 && dias <= 5) {
+        descuento = precioBase * 0.10;  // 10% descuento
+    } else if (dias >= 6 && dias <= 10) {
+        descuento = precioBase * 0.15;  // 15% descuento
+    } else if (dias > 10) {
+        descuento = precioBase * 0.20;  // 20% descuento
+    }
+    
+    const precioTotal = precioBase + precioSeguro + adicionales - descuento;
     
     // Definir color de fondo según días
     let backgroundColor;
@@ -51,11 +83,16 @@ document.getElementById('rentalForm').addEventListener('submit', function(e) {
         backgroundColor = 'blue';
     }
     
+    
     const resultado = document.getElementById('resultado');
     resultado.style.backgroundColor = backgroundColor;
     resultado.style.color = backgroundColor === 'blue' ? 'white' : 'black';
     resultado.innerHTML = `
         <h3>Resumen del Alquiler</h3>
+        <div class="resultado-contenido">
+            <div class="resultado-imagen">
+                <img src="${imagenesCarros[carro]}" alt="${carro}" style="max-width: 100%; border-radius: 8px;">
+            </div>
         <table>
             <tr>
                 <th>Cliente:</th>
@@ -72,6 +109,10 @@ document.getElementById('rentalForm').addEventListener('submit', function(e) {
             <tr>
                 <th>Precio base:</th>
                 <td>$${precioBase.toLocaleString()}</td>
+            </tr>
+            <tr>
+                <th>Descuento:</th>
+                <td>$${descuento.toLocaleString()} (${descuento > 0 ? 'Aplicado' : 'Sin descuento'})</td>
             </tr>
             <tr>
                 <th>Seguro (${seguro}):</th>
